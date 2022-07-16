@@ -1,14 +1,15 @@
 {
   autoreconfHook,
   bash,
-  gnused,
+  callPackage,
   coreutils,
+  flakeVersion,
+  gnused,
+  lib,
   nix,
   resholve,
   which,
   writeShellScript,
-  flakeVersion,
-  lib,
   self
 }:
 (
@@ -36,6 +37,11 @@
   }
 ).overrideAttrs (finalAttrs: previousAttrs: {
   pname = "nix-runner";
+  passThru = {
+    tests = {
+      simple = callPackage ./tests/simple.nix {};
+    };
+  };
   meta = {
     mainProgram = "nix-runner";
   };

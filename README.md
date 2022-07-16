@@ -40,7 +40,7 @@ specified in a particular order. For convenience, the order in this README will 
 
 ### `#!pure` (optional, once)
 Unset the existing `$PATH`, resulting in the specified dependencies being the only thing on the `$PATH` when the script runs. Highly recommended if you want to make your script
-more machine-independent. It doesn't make much sense to combine this with `#!impure`
+more machine-independent.
 
 ### `#!registry <original-ref> <resolved-ref>` (optional, repeated)
 Define a script-local nix registry. This is most useful to allow you to share a single pin across many packages (e.g. pin a specific `nixpkgs` hash that you can update in one
