@@ -10,9 +10,9 @@ to impatience in waiting for https://github.com/NixOS/nix/pull/5189 or a similar
 
 ## Usage
 
-It is recommended that you use `nix run` to invoke a pinned version of the `nix-runner` command, based on a commit hash. This should make your scripts behave predicatably even
-if the default behavior of nix-runner changes in a subsequent version, which is somewhat likely to happen. Internally, the `nix-runner` command will perform another invocation
-of `nix shell` with its own internally-pinned version of the `nix` command.
+It is recommended that you use `nix run` to invoke a pinned version of the `nix-runner` command, based on a commit hash (honestly, I would just take the HEAD of main at the time
+when you write your script). This should make your scripts behave predicatably even if the default behavior of nix-runner changes in a subsequent version, which is somewhat likely
+to happen. Internally, the `nix-runner` command will perform another invocation of `nix shell` with its own internally-pinned version of the `nix` command.
 
 ### Example
 
