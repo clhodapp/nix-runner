@@ -4,7 +4,7 @@
 
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/master";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/release-22.05";
 
   outputs = { self, flake-utils, nix, nixpkgs, ...}@inputs: (
     flake-utils.lib.eachSystem (flake-utils.lib.allSystems) (system:
