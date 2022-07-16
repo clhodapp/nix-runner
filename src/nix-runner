@@ -8,12 +8,11 @@ exec -a "$in_script" \
   bash <(
     sed \
       --quiet \
-      --expression='1{s|^.*$|exec -a '"'$in_script'"' '"'$NIX'"' shell --option experimental-features '"'nix-command flakes'"' \\|; p}' \
-      --expression='/^#!pure[[:space:]]*$/{s/.*/  --unset "PATH" \\/; p}' \
-      --expression='/^#!impure[[:space:]]*$/{s/.*/  --impure \\/; }' \
-      --expression='/^#!registry[[:space:]].*$/{s/^#!registry[[:space:]]*\(.*\) \(.*\)$/  --override-flake '"'\1'"' '"'\2'"' \\/; p}' \
-      --expression='/^#!package[[:space:]].*$/{s/^#!package[[:space:]]*\(.*\)$/  '"'\1'"' \\/; p}' \
-      --expression='/^#!command[[:space:]].*$/{s/^#!command[[:space:]]*\(.*\)$/  --command '"'\1'"' \\/; p}' \
+      --expression='1{s|^.*$|exec -a '"'$in_script'"' '"'$NIX'"' shell --option experimental-features '"'nix-command flakes'"' \\|; p; d}' \
+      --expression='/^#!pure[[:space:]]*$/{s/.*/  --unset "PATH" \\/; p; d}' \
+      --expression='/^#!registry[[:space:]].*$/{s/^#!registry[[:space:]]*\(.*\) \(.*\)$/  --override-flake '"'\1'"' '"'\2'"' \\/; p; d}' \
+      --expression='/^#!package[[:space:]].*$/{s/^#!package[[:space:]]*\(.*\)$/  '"'\1'"' \\/; p; d}' \
+      --expression='/^#!command[[:space:]].*$/{s/^#!command[[:space:]]*\(.*\)$/  --command '"'\1'"' \\/; p; d}' \
       "$in_script"
 
     echo '  "$@"'
