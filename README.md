@@ -59,5 +59,5 @@ command that is packaged for nix and uses `#` as its comment character.
 ## Implementation note
 
 At present, the `nix-runner` command is itself a simple shell script, which uses `sed` to process magic comments. This approach is kind of hacky, doesn't allow for good
-error messages, and creates the limitation on the ordering restrictions described above. In the future, it's possible that it will be rewritten in a general-purpose
-language in the future to resolve these limitations.
+error messages, and creates the limitation on the ordering described above. In the future, it's possible that it will be rewritten in a general-purpose
+language to resolve these limitations.
