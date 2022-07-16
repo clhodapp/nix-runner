@@ -7,7 +7,7 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/release-22.05";
 
   outputs = { self, flake-utils, nix, nixpkgs, ...}@inputs: (
-    flake-utils.lib.eachSystem (flake-utils.lib.allSystems) (system:
+    flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
           overlays = builtins.attrValues self.overlays;
