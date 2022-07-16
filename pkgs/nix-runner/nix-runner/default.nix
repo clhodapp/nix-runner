@@ -37,11 +37,6 @@
   }
 ).overrideAttrs (finalAttrs: previousAttrs: {
   pname = "nix-runner";
-  passThru = {
-    tests = {
-      simple = callPackage ./tests/simple.nix {};
-    };
-  };
   meta = {
     mainProgram = "nix-runner";
   };
