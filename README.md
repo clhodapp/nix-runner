@@ -19,7 +19,7 @@ to happen. Internally, the `nix-runner` command will perform another invocation 
 ```shell
 #!/usr/bin/env -S nix run 'github:clhodapp/nix-runner/7b56158f7ab9fd7806068c6571833210e063df19'
 #!pure
-#!registry nixpkgs github:NixOS/nixpkgs/5f862a767195f5183b2aca3618b45b9a8d1ed9d6
+#!registry nixpkgs github:NixOS/nixpkgs/0080a93cdf255b27e466116250b14b2bcd7b843b
 #!package nixpkgs#bash
 #!package nixpkgs#coreutils
 #!package nixpkgs#jq
