@@ -17,7 +17,7 @@ to happen. Internally, the `nix-runner` command will perform another invocation 
 ### Example
 
 ```shell
-#!/usr/bin/env -S nix run 'github:clhodapp/nix-runner/7b56158f7ab9fd7806068c6571833210e063df19'
+#!/usr/bin/env -S nix run 'github:clhodapp/nix-runner/7b56158f7ab9fd7806068c6571833210e063df19' --
 #!pure
 #!registry nixpkgs github:NixOS/nixpkgs/0080a93cdf255b27e466116250b14b2bcd7b843b
 #!package nixpkgs#bash
