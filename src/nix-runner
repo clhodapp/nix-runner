@@ -8,7 +8,7 @@ exec -a "$in_script" \
   bash <(
     sed \
       --quiet \
-      --expression='1{s|^.*$|exec -a '"'$in_script'"' '"'$NIX'"' shell --option experimental-features '"'nix-command flakes'"' \\|; p; d}' \
+      --expression='1{s|^.*$|exec -a '"'$in_script'"' '"'$NIX'"' shell --option experimental-features '"'nix-command flakes'"' --option warn-dirty false \\|; p; d}' \
       --expression='/^#!pure[[:space:]]*$/{s/.*/  --unset "PATH" \\/; p; d}' \
       --expression='/^#!registry[[:space:]].*$/{s/^#!registry[[:space:]]*\(.*\) \(.*\)$/  --override-flake '"'\1'"' '"'\2'"' \\/; p; d}' \
       --expression='/^#!package[[:space:]].*$/{s/^#!package[[:space:]]*\(.*\)$/  '"'\1'"' \\/; p; d}' \
