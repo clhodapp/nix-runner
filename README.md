@@ -42,6 +42,10 @@ specified in a particular order. For convenience, the order in this README will 
 Unset the existing `$PATH`, resulting in the specified dependencies being the only thing on the `$PATH` when the script runs. Highly recommended if you want to make your script
 more machine-independent.
 
+### `#!nix-option <name> <value>` (optional, repeated)
+Define an extra `--option` flag to be passed to the `nix shell` command that actually runs your script. For reproducibiilty, this will be the version of `nix` that has been "pinned"
+within nix-runner so the set of available options may differ slightly from what's available ambiently on your system.
+
 ### `#!registry <original-ref> <resolved-ref>` (optional, repeated)
 Define a script-local nix registry. This is most useful to allow you to share a single pin across many packages (e.g. pin a specific `nixpkgs` hash that you can update in one
 place).

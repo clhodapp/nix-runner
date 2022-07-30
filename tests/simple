@@ -1,7 +1,8 @@
-#!/usr/bin/env -S nix run .
+#!/usr/bin/env -S nix run --option warn-dirty false '.' --
 #!pure
 #!registry nixpkgs github:NixOS/nixpkgs/863f0278a4bdb2e8dc6597fad91faf43ccfd9e77
 #!package nixpkgs#bash
+#!package nixpkgs#curl
 #!package nixpkgs#coreutils
 #!package nixpkgs#jq
 #!package nixpkgs#nix
