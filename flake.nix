@@ -37,8 +37,6 @@
 
         packages = nixpkgs.lib.filterAttrs (n: v: nixpkgs.lib.isDerivation v) pkgs.nix-runner;
 
-        legacyPackages = pkgs;
-
       }
     ) // {
 

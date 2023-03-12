@@ -1,23 +1,19 @@
 {
-  bash,
   busybox,
-  coreutils,
   flakeVersion,
-  gnused,
-  lib,
-  dash,
-  nixStatic,
   inputs,
+  lib,
+  nixStatic,
+  runtimeShell,
+  self,
   system,
-  toybox,
-  self
 }:
 let
   writeShellScriptBin = name: text: (
     builtins.derivation {
       inherit name system;
       text = ''
-        #!${busybox}/bin/sh
+        #!${runtimeShell}
         ${text}
       '';
       passAsFile = [ "text" ];
@@ -46,7 +42,7 @@ writeShellScriptBin "nix-runner" ''
   shift
 
   exec -a "$in_script" \
-    ${bash}/bin/sh <(
+    ${runtimeShell} <(
       ${busybox}/bin/sed \
         --quiet \
         --expression='1{s|^.*$|exec -a '"'$in_script'"' '"'${nixStatic}/bin/nix'"' shell --option experimental-features '"'nix-command flakes'"' \\|; p; d}' \
