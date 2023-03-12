@@ -15,5 +15,13 @@ in rec {
     else "dirty"
   );
   default = nix-runner;
-  nix-runner = callPackage ./nix-runner { };
+  nix-runner = callPackage ./nix-runner { inherit inputs; };
+
+  stdenv-minimal = callPackage ({coreutils, stdenvNoCC}: stdenvNoCC.overrideDerivation (prev:
+    {
+      initialPath = [ coreutils ];
+      allowedRequisites = [ coreutils ];
+    }
+  )) { };
+
 }
