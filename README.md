@@ -1,4 +1,6 @@
 
+> :warning: **Deprecated**: Please use the `nix` command shebang feature built into Nix versions 2.19 and higher!
+
 # nix-runner
 > Tidy shell shebangs with nix flakes
 
